@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 
 import static delgado.luis.Autor.*;
+import static delgado.luis.AutorAdministrador.*;
 import static delgado.luis.Editorial.*;
 import static delgado.luis.Libro.*;
 import static delgado.luis.Usuario.*;
@@ -20,7 +21,17 @@ public class Controlador {
 
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
+    private static AutorAdministrador autorAdm = new AutorAdministrador("12");
+
     public static PrintStream out = System.out;
+
+    public void imprimirMensaje(String msj){
+        out.println(msj);
+    }
+
+    public String leerTexto() throws IOException {
+       return in.readLine();
+    }
 
     public void start() throws IOException {
         int opcion;
@@ -34,14 +45,14 @@ public class Controlador {
 
     public void ShowMenu() throws java.io.IOException {
 
-        System.out.println("Por favor seleccione alguna de las siguientes opciones:");
-        System.out.println("1. Administrar catalogos de datos");
-        System.out.println("2. Solicitar nuevo prestamo");
-        System.out.println("3. Consultar prestamos");
-        System.out.println("4. Consultar todos los prestamos realizados por un usuario");
-        System.out.println("4. Consultar todos los prestamos realizados de un libro");
-        System.out.println("5. Salir");
-        System.out.println("Ingrese el numero de la operacion que desea");
+        imprimirMensaje("Por favor seleccione alguna de las siguientes opciones:");
+        imprimirMensaje("1. Administrar catalogos de datos");
+        imprimirMensaje("2. Solicitar nuevo prestamo");
+        imprimirMensaje("3. Consultar prestamos");
+        imprimirMensaje("4. Consultar todos los prestamos realizados por un usuario");
+        imprimirMensaje("4. Consultar todos los prestamos realizados de un libro");
+        imprimirMensaje("5. Salir");
+        imprimirMensaje("Ingrese el numero de la operacion que desea");
         answer = Integer.parseInt(in.readLine());
 
     }
@@ -78,27 +89,27 @@ public class Controlador {
     }
 
     public void AdmCatalogoDatos() throws IOException {
-        System.out.println("Catalogo de autor");
-        System.out.println("1. Ingresar un nuevo autor");
-        System.out.println("2. Consultar datos de un autor.");
-        System.out.println("3. Actualizar datos de un autor");
-        System.out.println("4. Eliminar un autor");
-        System.out.println("Catalogo de editorial");
-        System.out.println("5. Ingresar una nueva editorial.");
-        System.out.println("6. Consultar datos de una editorial.");
-        System.out.println("7. Eliminar una editorial.");
-        System.out.println("Catalogo de libro");
-        System.out.println("8. Ingresar un nuevo libro.");
-        System.out.println("9. Consultar datos de un libro.");
-        System.out.println("10. Eliminar un libro.");
-        System.out.println("Catalogo de usuario");
-        System.out.println("11. Ingresar un nuevo usuario.");
-        System.out.println("12. Consultar datos de un usuario.");
-        System.out.println("13. Actualizar datos de un usuario.");
-        System.out.println("14. Eliminar un usuario.");
-        System.out.println("Salir del submenu y volver al menu");
-        System.out.println("15. Salir del administrador de catálogos.");
-        System.out.println("Ingrese el numero de la operacion que desea");
+        imprimirMensaje("Catalogo de autor");
+        imprimirMensaje("1. Ingresar un nuevo autor");
+        imprimirMensaje("2. Consultar datos de un autor.");
+        imprimirMensaje("3. Actualizar datos de un autor");
+        imprimirMensaje("4. Eliminar un autor");
+        imprimirMensaje("Catalogo de editorial");
+        imprimirMensaje("5. Ingresar una nueva editorial.");
+        imprimirMensaje("6. Consultar datos de una editorial.");
+        imprimirMensaje("7. Eliminar una editorial.");
+        imprimirMensaje("Catalogo de libro");
+        imprimirMensaje("8. Ingresar un nuevo libro.");
+        imprimirMensaje("9. Consultar datos de un libro.");
+        imprimirMensaje("10. Eliminar un libro.");
+        imprimirMensaje("Catalogo de usuario");
+        imprimirMensaje("11. Ingresar un nuevo usuario.");
+        imprimirMensaje("12. Consultar datos de un usuario.");
+        imprimirMensaje("13. Actualizar datos de un usuario.");
+        imprimirMensaje("14. Eliminar un usuario.");
+        imprimirMensaje("Salir del submenu y volver al menu");
+        imprimirMensaje("15. Salir del administrador de catálogos.");
+        imprimirMensaje("Ingrese el numero de la operacion que desea");
         SubAnswer1 = Integer.parseInt(in.readLine());
     }
 
@@ -108,7 +119,7 @@ public class Controlador {
                 NuevoAutor();
                 break;
             case 2:
-                ConsultarDatosAutor();
+                autorAdm.ConsultarDatosAutor();
                 break;
             case 3:
                 ActualizarAutor();

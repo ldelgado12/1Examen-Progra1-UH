@@ -1,28 +1,60 @@
 package delgado.luis;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Autor {
 
-    public int id;
-    public String Nombre;
-    public String pApellido;
-    public String sApellido;
-    public String fechaNacimiento;
+    private static Scanner scanner = new Scanner(System.in);
 
-    public static void NuevoAutor(){
-        System.out.println("Procedimiento del nuevo autor");
+    private String id;
+    private String nombre;
+    private String pApellido;
+    private String sApellido;
+    private String fechaNacimiento;
+
+    public Autor(String id, String nombre, String pApellido, String sApellido, String fechaNacimiento){
+        this.id = id;
+        this.nombre = nombre;
+        this.pApellido = pApellido;
+        this.sApellido = sApellido;
+        this.fechaNacimiento = fechaNacimiento;
+
     }
 
-    public static void ConsultarDatosAutor(){
-        System.out.println("Procedimiento de consultar");
+    public String getId() {
+        return id;
     }
 
-    public static void ActualizarAutor(){
-        System.out.println("Procedimiento de actualizar");
+    public String getNombre() {
+        return nombre;
     }
 
-    public static void EliminarAutor(){
-        System.out.println("Procedimiento de actualizar");
+    public String getpApellido() {
+        return pApellido;
     }
 
+    public String getsApellido() {
+        return sApellido;
+    }
 
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public static Autor crearAutor(String id, String nombre, String pApellido, String sApellido, String fechaNacimiento){
+        return new Autor(id, nombre, pApellido, sApellido, fechaNacimiento);
+    }
+
+    @Override
+    public String toString() {
+        return "Autor{" +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", pApellido='" + pApellido + '\'' +
+                ", sApellido='" + sApellido + '\'' +
+                ", fechaNacimiento='" + fechaNacimiento + '\'' +
+                '}';
+    }
 }
