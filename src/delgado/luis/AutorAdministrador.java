@@ -8,17 +8,17 @@ public class AutorAdministrador {
 
 
     private static Scanner scanner = new Scanner(System.in);
-    private String myID;
     private static AutorAdministrador autorAdm = new AutorAdministrador("12");
 
-    public ArrayList<Autor> autores;
+    private String id;
+    private ArrayList<Autor> autores;
 
     public AutorAdministrador(String id) {
-        this.myID = id;
+        this.id = id;
         this.autores = new ArrayList<Autor>();
     }
 
-    public static void NuevoAutor() throws IOException {
+    public static void NuevoAutor() {
         System.out.println("Ingrese el id del autor");
         String id = scanner.nextLine();
         System.out.println("Ingrese el nombre del autor");
@@ -46,7 +46,7 @@ public class AutorAdministrador {
             System.out.println("Autor ya existe");
             return false;
         }
-        this.autores.add(autor);
+        autores.add(autor);
 
         return true;
     }
@@ -82,15 +82,13 @@ public class AutorAdministrador {
 
 
     public void ConsultarDatosAutor(){
-        System.out.println("Lista de datos de los autores");
 
-        for(int i=0; i<autores.size(); i++){
-            System.out.println((i+1)+"."
-                    + this.autores.get(i).getId() + "-> "+
-                    this.autores.get(i).getNombre() + "-> "+
-                    this.autores.get(i).getpApellido() + "-> "+
-                    this.autores.get(i).getsApellido() + "-> "+
-                    this.autores.get(i).getFechaNacimiento());
+        System.out.println("Ingrese el id de un contacto que desea consultar");
+        String id = scanner.nextLine();
+        Autor autorExistente = autorAdm.queryAutor(id);
+        if (autorExistente != null){
+            System.out.println(autorExistente);
+            return;
         }
     }
 
@@ -146,13 +144,13 @@ public class AutorAdministrador {
         Autor autorExistente = autorAdm.queryAutor(id);
 
         if (autorExistente == null) {
-            System.out.println("Contact not found.");
+            System.out.println("Usuario no encontrado.");
             return;
         }
         if (autorAdm.removerAutor(autorExistente)){
-            System.out.println("Successfully deleted");
+            System.out.println("Exitosamente eliminado");
         }else {
-            System.out.println("Error deleting contact");
+            System.out.println("Error al momento de eliminar el contact");
         }
 
     }

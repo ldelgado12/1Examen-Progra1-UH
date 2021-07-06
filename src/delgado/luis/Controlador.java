@@ -10,8 +10,10 @@ import java.io.PrintStream;
 import static delgado.luis.Autor.*;
 import static delgado.luis.AutorAdministrador.*;
 import static delgado.luis.Editorial.*;
+import static delgado.luis.EditorialAdministrador.*;
 import static delgado.luis.Libro.*;
 import static delgado.luis.Usuario.*;
+import static delgado.luis.UsuarioAdministrador.*;
 
 public class Controlador {
 
@@ -21,7 +23,9 @@ public class Controlador {
 
     static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
+    private static EditorialAdministrador ediAdm = new EditorialAdministrador("12");
     private static AutorAdministrador autorAdm = new AutorAdministrador("12");
+    private static UsuarioAdministrador usuarioAdm = new UsuarioAdministrador("12");
 
     public static PrintStream out = System.out;
 
@@ -131,7 +135,7 @@ public class Controlador {
                 NuevaEditorial();
                 break;
             case 6:
-                ConsultarDatosEditorial();
+                ediAdm.ConsultarDatosEditorial();
                 break;
             case 7:
                 EliminarEditorial();
@@ -149,7 +153,7 @@ public class Controlador {
                 NuevoUsuario();
                 break;
             case 12:
-                ConsultarDatosUsuario();
+                usuarioAdm.ConsultarDatosUsuario();
                 break;
             case 13:
                 ActualizarUsuario();

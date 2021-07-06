@@ -2,26 +2,42 @@ package delgado.luis;
 
 public class Usuario {
 
-    public int id;
-    public String Nombre;
-    public String pApellido;
-    public String sApellido;
-    public String TelefonoContacto;
+    private String id;
+    private String Nombre;
+    private String pApellido;
+    private String sApellido;
+    private String TelefonoContacto;
 
-    public static void NuevoUsuario(){
-        System.out.println("programar agregar un usuario");
+    public Usuario(String id, String nombre, String pApellido, String sApellido, String telefonoContacto) {
+        this.id = id;
+        this.Nombre = nombre;
+        this.pApellido = pApellido;
+        this.sApellido = sApellido;
+        this.TelefonoContacto = telefonoContacto;
     }
 
-    public static void ConsultarDatosUsuario(){
-        System.out.println("programar consultar datos de usuario");
+    public String getId() {
+        return id;
     }
 
-    public static void ActualizarUsuario(){
-        System.out.println("programar actualizar el usuario");
+    public String getNombre() {
+        return Nombre;
     }
 
-    public static void EliminarUsuario(){
-        System.out.println("programar eliminar el usuario");
+    public String getpApellido() {
+        return pApellido;
+    }
+
+    public String getsApellido() {
+        return sApellido;
+    }
+
+    public String getTelefonoContacto() {
+        return TelefonoContacto;
+    }
+
+    public static Usuario crearUsuario(String id, String nombre, String pApellido, String sApellido, String telefonoContacto){
+        return new Usuario(id, nombre, pApellido, sApellido, telefonoContacto);
     }
 
 }

@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 public class Autor {
 
-    private static Scanner scanner = new Scanner(System.in);
-
     private String id;
     private String nombre;
     private String pApellido;
