@@ -106,5 +106,32 @@ public class EditorialAdministrador {
 
     }
 
+    public String mostrarEditoriales(){
+        String lineaEditorial = "";
+        int iterador= 0;
+
+        while (iterador < editoriales.size()){
+            lineaEditorial = lineaEditorial + editoriales.get(iterador).getId() + " - " + editoriales.get(iterador).getNombre();
+            iterador++;
+        }
+        return lineaEditorial;
+    }
+
+    public Editorial ListaEditorial (int id){
+        boolean existe = false;
+        Editorial editorial = null;
+        int iterador = 0;
+
+        while (!existe && iterador < editoriales.size()){
+            if (editoriales.get(iterador).getId().equals(id)){
+                existe = true;
+                editorial = editoriales.get(iterador);
+            }
+            iterador++;
+        }
+        return editorial;
+    }
+
+
 
 }

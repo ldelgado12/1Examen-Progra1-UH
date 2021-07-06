@@ -7,13 +7,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 
-import static delgado.luis.Autor.*;
 import static delgado.luis.AutorAdministrador.*;
-import static delgado.luis.Editorial.*;
 import static delgado.luis.EditorialAdministrador.*;
-import static delgado.luis.Libro.*;
-import static delgado.luis.Usuario.*;
 import static delgado.luis.UsuarioAdministrador.*;
+import static delgado.luis.LibroAdministrador.*;
 
 public class Controlador {
 
@@ -26,6 +23,8 @@ public class Controlador {
     private static EditorialAdministrador ediAdm = new EditorialAdministrador("12");
     private static AutorAdministrador autorAdm = new AutorAdministrador("12");
     private static UsuarioAdministrador usuarioAdm = new UsuarioAdministrador("12");
+    private static LibroAdministrador libroAdm = new LibroAdministrador("12");
+
 
     public static PrintStream out = System.out;
 
@@ -144,7 +143,7 @@ public class Controlador {
                 NuevoLibro();
                 break;
             case 9:
-                ConsultarDatosLibro();
+                libroAdm.ConsultarDatosLibro();
                 break;
             case 10:
                 EliminarLibro();

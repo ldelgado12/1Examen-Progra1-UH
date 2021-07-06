@@ -167,6 +167,32 @@ public class AutorAdministrador {
 
     }
 
+    public String mostrarAutores(){
+        String lineaAutor = "";
+        int iterador= 0;
+
+        while (iterador < autores.size()){
+            lineaAutor = lineaAutor + autores.get(iterador).getId() + " - " + autores.get(iterador).getNombre();
+            iterador++;
+        }
+        return lineaAutor;
+    }
+
+    public Autor ListaAutor (int id){
+        boolean existe = false;
+        Autor autor = null;
+        int iterador = 0;
+
+        while (!existe && iterador < autores.size()){
+            if (autores.get(iterador).getId().equals(id)){
+                existe = true;
+                autor = autores.get(iterador);
+            }
+            iterador++;
+        }
+        return autor;
+    }
+
 
 
 }
