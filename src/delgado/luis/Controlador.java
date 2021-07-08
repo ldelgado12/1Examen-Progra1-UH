@@ -11,6 +11,7 @@ import static delgado.luis.AutorAdministrador.*;
 import static delgado.luis.EditorialAdministrador.*;
 import static delgado.luis.UsuarioAdministrador.*;
 import static delgado.luis.LibroAdministrador.*;
+import static delgado.luis.PrestamoAdministrador.*;
 
 public class Controlador {
 
@@ -72,16 +73,16 @@ public class Controlador {
                 } while (sub1 != 15);
                 break;
             case 2:
-                //NuevoPrestamo();
+                NuevoPrestamo();
                 break;
             case 3:
-                //ConsultarPrestamos();
+                FinalizarPrestamo();
                 break;
             case 4:
-                //ConsultarPrestamosUsuario();
+                ConsultarPrestamosUsuario();
                 break;
             case 5:
-                //ConsultarPrestamosLibro();
+                ConsultarPrestamosLibro();
                 break;
             case 6:
                 System.out.println("Gracias");
@@ -146,6 +147,7 @@ public class Controlador {
                 libroAdm.ConsultarDatosLibro();
                 break;
             case 10:
+
                 EliminarLibro();
                 break;
             case 11:

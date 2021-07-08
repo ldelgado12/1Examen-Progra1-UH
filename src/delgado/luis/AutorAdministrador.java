@@ -11,7 +11,7 @@ public class AutorAdministrador {
     private static AutorAdministrador autorAdm = new AutorAdministrador("12");
 
     private String id;
-    private ArrayList<Autor> autores;
+    static ArrayList<Autor> autores;
 
     public AutorAdministrador(String id) {
         this.id = id;
@@ -48,7 +48,23 @@ public class AutorAdministrador {
         }
         autores.add(autor);
 
+        listarAutores();
+
         return true;
+    }
+
+    public static void listarAutores(){
+
+        System.out.println("Contact list:");
+        for(int i=0; i< autores.size(); i++){
+            System.out.println((i+1)+"."
+                    + "-> "+
+                    autores.get(i).getNombre());
+        }
+
+//        for(Autor a: autores){
+//            System.out.println(a.toString());
+//        }
     }
 
     public int encontrarAutor(Autor autor){

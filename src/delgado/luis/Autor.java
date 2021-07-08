@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Autor {
 
-    private String id;
-    private String nombre;
+    public String id;
+    public String nombre;
     private String pApellido;
     private String sApellido;
     private String fechaNacimiento;

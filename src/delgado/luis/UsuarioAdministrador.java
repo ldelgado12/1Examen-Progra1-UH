@@ -9,7 +9,7 @@ public class UsuarioAdministrador {
     private static UsuarioAdministrador usuarioAdm = new UsuarioAdministrador("1");
 
     private String id;
-    private ArrayList<Usuario> usuarios;
+    static ArrayList<Usuario> usuarios;
 
     public UsuarioAdministrador(String id){
         this.id = id;
@@ -74,6 +74,8 @@ public class UsuarioAdministrador {
         }
         return null;
     }
+
+
 
 
     public  void ConsultarDatosUsuario(){
@@ -157,6 +159,32 @@ public class UsuarioAdministrador {
         this.usuarios.remove(posicion);
         System.out.println(usuario.getId() + " fue eliminado");
         return true;
+    }
+
+    public static void listarUsuarios(){
+
+        System.out.println("Lista de usuarios:");
+        for(int i=0; i< usuarios.size(); i++){
+            System.out.println((i+1)+"."
+                    + "-> "+
+                    usuarios.get(i).getNombre());
+        }
+    }
+
+
+    public Usuario ListaUsuario (int id){
+        boolean existe = false;
+        Usuario usuario = null;
+        int iterador = 0;
+
+        while (!existe && iterador < usuarios.size()){
+            if (usuarios.get(iterador).getId().equals(id)){
+                existe = true;
+                usuario = usuarios.get(iterador);
+            }
+            iterador++;
+        }
+        return usuario;
     }
 
 }

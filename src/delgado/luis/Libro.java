@@ -2,15 +2,15 @@ package delgado.luis;
 
 public class Libro {
 
-    private String id;
-    private Autor autor;
+    public String id;
+    public Autor autor;
     private String fechaPublicacion;
     private String edicion;
     private String titulo;
-    private Editorial editorial;
-    private String copias;
+    public Editorial editorial;
+    private int copias;
 
-    public Libro(String id, Autor autor, String fechaPublicacion, String edicion, String titulo, Editorial editorial, String copias) {
+    public Libro(String id, Autor autor, String fechaPublicacion, String edicion, String titulo, Editorial editorial, int copias) {
         this.id = id;
         this.autor = autor;
         this.fechaPublicacion = fechaPublicacion;
@@ -44,12 +44,24 @@ public class Libro {
         return editorial;
     }
 
-    public String getCopias() {
+    public Integer getCopias() {
         return copias;
     }
 
-    public static Libro crearLibro(String id, Autor autor, String fechaPublicacion, String edicion, String titulo, Editorial editorial, String copias){
+    public static Libro crearLibro(String id, Autor autor, String fechaPublicacion, String edicion, String titulo, Editorial editorial, int copias){
         return new Libro(id, autor, fechaPublicacion, edicion, titulo, editorial, copias);
     }
 
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "id='" + id + '\'' +
+                ", autor=" + autor +
+                ", fechaPublicacion='" + fechaPublicacion + '\'' +
+                ", edicion='" + edicion + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", editorial=" + editorial +
+                ", copias='" + copias + '\'' +
+                '}';
+    }
 }

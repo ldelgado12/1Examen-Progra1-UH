@@ -9,7 +9,7 @@ public class EditorialAdministrador {
     private static EditorialAdministrador ediAdm = new EditorialAdministrador("1");
     private String myID;
 
-    public ArrayList<Editorial> editoriales;
+    static ArrayList<Editorial> editoriales;
 
     public EditorialAdministrador(String id){
         this.myID = id;
@@ -125,7 +125,8 @@ public class EditorialAdministrador {
         while (!existe && iterador < editoriales.size()){
             if (editoriales.get(iterador).getId().equals(id)){
                 existe = true;
-                editorial = editoriales.get(iterador);
+                editorial = editoriales.get(iterador)
+                ;
             }
             iterador++;
         }

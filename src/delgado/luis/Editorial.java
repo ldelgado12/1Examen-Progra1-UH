@@ -2,8 +2,8 @@ package delgado.luis;
 
 public class Editorial {
 
-    private String id;
-    private String nombre;
+    public String id;
+    public String nombre;
     private String ubicacion;
     private String telefonoContacto;
 

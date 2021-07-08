@@ -2,8 +2,8 @@ package delgado.luis;
 
 public class Usuario {
 
-    private String id;
-    private String Nombre;
+    public String id;
+    public String Nombre;
     private String pApellido;
     private String sApellido;
     private String TelefonoContacto;
