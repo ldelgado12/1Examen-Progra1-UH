@@ -37,6 +37,9 @@ public class Controlador {
        return in.readLine();
     }
 
+    /*
+    funcion que ejecuta el inicio del programa, esta funcion es llamada desde el main
+     */
     public void start() throws IOException {
         int opcion;
         do {
@@ -47,12 +50,15 @@ public class Controlador {
 
     }
 
+    /*
+    funion que muestra el primer menu del programa
+     */
     public void ShowMenu() throws java.io.IOException {
 
         imprimirMensaje("Por favor seleccione alguna de las siguientes opciones:");
         imprimirMensaje("1. Administrar catalogos de datos");
         imprimirMensaje("2. Solicitar nuevo prestamo");
-        imprimirMensaje("3. Consultar prestamos");
+        imprimirMensaje("3. Finalizar prestamos");
         imprimirMensaje("4. Consultar todos los prestamos realizados por un usuario");
         imprimirMensaje("4. Consultar todos los prestamos realizados de un libro");
         imprimirMensaje("5. Salir");
@@ -62,6 +68,9 @@ public class Controlador {
     }
 
 
+    /*
+    funcion del switch, esta funcion llama a cada uno de los eventos que el usuario quiera ejecutar
+     */
     public void procesarOpcion(int pOpcion) throws IOException {
         switch (pOpcion) {
             case 1:
@@ -92,6 +101,9 @@ public class Controlador {
         }
     }
 
+    /*
+    funcion del submenu de la opcion 1 del menu principal
+     */
     public void AdmCatalogoDatos() throws IOException {
         imprimirMensaje("Catalogo de autor");
         imprimirMensaje("1. Ingresar un nuevo autor");
@@ -117,6 +129,9 @@ public class Controlador {
         SubAnswer1 = Integer.parseInt(in.readLine());
     }
 
+    /*
+    funcion del switch, esta funcion llama a cada uno de los eventos que el usuario quiera ejecutar del sub menu
+     */
     public void SubCatalogo(int SubOpcion) throws IOException {
         switch (SubOpcion) {
             case 1:

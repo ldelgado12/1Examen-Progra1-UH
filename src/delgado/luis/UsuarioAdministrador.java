@@ -9,13 +9,24 @@ public class UsuarioAdministrador {
     private static UsuarioAdministrador usuarioAdm = new UsuarioAdministrador("1");
 
     private String id;
+
+    /*
+    Arreglo de datos de la clase de usuario
+     */
     static ArrayList<Usuario> usuarios;
 
+    /*
+    Contructor de la clase del usuario de administrador
+     */
     public UsuarioAdministrador(String id){
         this.id = id;
         this.usuarios = new ArrayList<Usuario>();
     }
 
+    /*
+    funcion para crear un usuario, esta clase se va a conectar con el constructor de crear usuario en la clase
+    luego anade la informacion al arreglo
+     */
     public static void NuevoUsuario(){
         System.out.println("Ingrese el id del usuario");
         String id = scanner.nextLine();
@@ -37,6 +48,9 @@ public class UsuarioAdministrador {
         }
     }
 
+    /*
+    esta funcion valida si ya existe un usuario con el mismo id en el arreglo
+     */
     public boolean crearUsuario(Usuario usuario){
         if (encontrarUsuario(usuario.getId())>=0){
             System.out.println("Usuario ya existe");
@@ -46,10 +60,16 @@ public class UsuarioAdministrador {
         return true;
     }
 
+    /*
+    esta funcion va a validar la cantidad de datos guardados en el arreglo
+     */
     public int encontrarUsuario(Usuario usuario){
         return this.usuarios.indexOf(usuario);
     }
 
+    /*
+    esta funcion va a validar y devolver la ubicacion del id de un usuario dentro de la lista de arreglos
+     */
     private int encontrarUsuario(String id){
         for (int i=0; i<this.usuarios.size(); i++){
             Usuario usuario = this.usuarios.get(i);
@@ -67,6 +87,9 @@ public class UsuarioAdministrador {
         return null;
     }
 
+    /*
+    esta funcion va a devolver la ubicacion exacta del id de un usuario dentro de un arreglo
+     */
     public Usuario queryUsuario(String id){
         int position = encontrarUsuario(id);
         if(position>=0){
@@ -75,9 +98,9 @@ public class UsuarioAdministrador {
         return null;
     }
 
-
-
-
+    /*
+    con esta funcion se puede verificar toda la informacion de un usuario tomando como referencia el id que se incluya en el programa
+     */
     public  void ConsultarDatosUsuario(){
 
         System.out.println("Ingrese el id del usuario que desea consultar");
@@ -87,10 +110,12 @@ public class UsuarioAdministrador {
             System.out.println(usuarioExistente);
             return;
         }
-
-
     }
 
+    /*
+    con esta funcion se puede actualizar toda la informacion de un usuario
+    se busca con el id y luego de incluir la data, se agrega al arreglo de datos
+     */
     public static void ActualizarUsuario(){
         System.out.println("Ingrese el id de un usuario existente");
         String id = scanner.nextLine();
@@ -118,6 +143,9 @@ public class UsuarioAdministrador {
         }
     }
 
+    /*
+    esta funcion se aplica en el arreglo de actualizar, verifica si el nuevo id ya existe, y sino, lo agrega en el arreglo
+     */
     public boolean updateUsuario(Usuario oldUsuario, Usuario newUsuario){
         int foundPosition = encontrarUsuario(oldUsuario);
         if(foundPosition<0){
@@ -134,6 +162,9 @@ public class UsuarioAdministrador {
         return true;
     }
 
+    /*
+    funcion para eliminar los datos de un arreglo, mediante un id
+     */
     public static void EliminarUsuario(){
         System.out.println("Ingrese el id del usuario que desea eliminar");
         String id = scanner.nextLine();
@@ -150,6 +181,9 @@ public class UsuarioAdministrador {
         }
     }
 
+    /*
+    funcion utilizada en el eliminar usuario, validando si el usuario existe dentro del arreglo o no
+     */
     public boolean removerUsuario(Usuario usuario){
         int posicion = encontrarUsuario(usuario);
         if (posicion<0){
@@ -161,6 +195,9 @@ public class UsuarioAdministrador {
         return true;
     }
 
+    /*
+    funcion que entrega toda la lista de informacion dentro del arreglo de usuarios
+     */
     public static void listarUsuarios(){
 
         System.out.println("Lista de usuarios:");
@@ -171,7 +208,9 @@ public class UsuarioAdministrador {
         }
     }
 
-
+    /*
+    funcion utilizada en la clase de prestamo para asignar usuarios mediante una lista
+     */
     public Usuario ListaUsuario (int id){
         boolean existe = false;
         Usuario usuario = null;

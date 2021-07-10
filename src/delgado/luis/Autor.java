@@ -6,12 +6,18 @@ import java.util.Scanner;
 
 public class Autor {
 
+    /*
+    variables de la clase autor
+     */
     public String id;
     public String nombre;
     private String pApellido;
     private String sApellido;
     private String fechaNacimiento;
 
+    /*
+    Constructor de la variable autor
+     */
     public Autor(String id, String nombre, String pApellido, String sApellido, String fechaNacimiento){
         this.id = id;
         this.nombre = nombre;
@@ -41,6 +47,9 @@ public class Autor {
         return fechaNacimiento;
     }
 
+    /*
+    Constructor para crear un autor en el arreglo de datos
+     */
     public static Autor crearAutor(String id, String nombre, String pApellido, String sApellido, String fechaNacimiento){
         return new Autor(id, nombre, pApellido, sApellido, fechaNacimiento);
     }

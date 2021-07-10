@@ -18,6 +18,11 @@ public class LibroAdministrador {
         this.libros = new ArrayList<Libro>();
     }
 
+    /*
+    Funcion en la que se incluye un nuevo libro, esta va a solicitar los datos necesarios para el libro
+
+     */
+
     public static void NuevoLibro(){
         System.out.println("Ingrese el id del Libro");
         String id = scanner.nextLine();
@@ -27,11 +32,14 @@ public class LibroAdministrador {
         int copias = scanner.nextInt();
         System.out.println("Ingrese la edicion del libro");
         String edicion = scanner.nextLine();
-        System.out.print(" ");
+        scanner.nextLine();
         System.out.println("Ingrese el titulo del libro");
         String titulo = scanner.nextLine();
         System.out.print(" ");
 
+        /*
+        para ingresar nuevos autores, va a imprimir una lista actual de autores para luego asignar el valor necesario
+         */
 
         scanner.nextLine();
         System.out.println("Ingrese el autor del libro");
@@ -65,16 +73,10 @@ public class LibroAdministrador {
 
     }
 
-//    public String encontrarCopias(String copia){
-//        for(int i =0; i<this.libros.size();i++){
-//            Libro libro = this.libros.get(i);
-//            if(libro.getCopias().equals(copia)){
-//                String copias = libro.getCopias();
-//                return copias;
-//            }
-//        }
-//        return copia;
-//    }
+
+    /*
+    funcion para actualizar el arreglo de datos del libro, esta funcion se efectua automaticamente al momento de generar un prestamo
+     */
 
     public static void ActualizarLibro(int id){
         for(int i =0; i<libros.size();i++){
@@ -96,6 +98,10 @@ public class LibroAdministrador {
 
 
     }
+
+    /*
+    esta funcion actualiza la cantidad de copias que pertenece a un libro al momento del prestamo, funcion necesaria para efectual la funcion ActualizarLibro()
+     */
 
     public int actCopias(int id){
         for(int i =0; i<this.libros.size();i++){
@@ -119,7 +125,9 @@ public class LibroAdministrador {
         return 0;
     }
 
-
+    /*
+    funcion que devuelve la ubicacion correcta para encontrar un libro en el arreglo de libros
+     */
 
     public Libro queryLibro(String id){
         int position = encontrarLibro(id);
@@ -128,6 +136,10 @@ public class LibroAdministrador {
         }
         return null;
     }
+
+    /*
+    funcion para verificar si el id del libro creado ya existe, en caso positivo retorna un msj indicandolo
+     */
     public boolean crearLibro(Libro libro){
         if(encontrarLibro(libro.getId())>=0){
             System.out.println("Libro ya existe");
@@ -137,6 +149,9 @@ public class LibroAdministrador {
         return true;
     }
 
+    /*
+    funcion con el indexOf este retornada un valor mayor a 0, indicando si encontro un libro en el arreglo, funcion necesaria para la funcion de remover
+     */
     public int encontrarLibro(Libro libro){
         return this.libros.indexOf(libro);
     }
@@ -152,19 +167,9 @@ public class LibroAdministrador {
     }
 
 
-
-//    public Libro queryEdicion(String id){
-//        int position = encontrarLibro(id);
-//        int posEdicion =
-//        if(position>=0){
-//            if(){
-//
-//            }
-//            return this.libros.get(position);
-//        }
-//        return null;
-//    }
-
+    /*
+    funcion de consultar los datos de un libro, esta funcion retornada los datos asociados a un id de libro en especifico
+     */
 
     public void ConsultarDatosLibro(){
 
@@ -176,6 +181,11 @@ public class LibroAdministrador {
             return;
         }
     }
+
+    /*
+    funcion para eliminar un libro, consultando el del libro y en caso positivo de que exista,
+    el libro sera eliminado o mostrara un msj indicando que no se encontro el libro
+     */
 
     public static void EliminarLibro(){
         System.out.println("Ingrese el id del libro que desea eliminar");
@@ -203,6 +213,9 @@ public class LibroAdministrador {
         return true;
     }
 
+    /*
+    funcion necesaria para efectual la eliminacion de un libro, esta funcion es llamada en la funcion EliminarLibro()
+     */
     public boolean removerLibro(Libro libro){
         int posicion = encontrarLibro(libro);
         if(posicion < 0){
@@ -215,6 +228,10 @@ public class LibroAdministrador {
 
     }
 
+    /*
+    esta funcion entrega el titulo del libro y la cantidad de copias asociadas, esta funcion es necesaria para efectuar los prestamos
+     */
+
     public static void listarLibros(){
         System.out.println("Lista de libros:");
         for(int i=0; i< libros.size(); i++){
@@ -224,6 +241,10 @@ public class LibroAdministrador {
                     libros.get(i).getCopias());
         }
     }
+
+    /*
+    Funcion para listar libros, esta funcion es necesaria para efectuar los prestamos
+     */
 
     public Libro ListaLibro (int id){
         boolean existe = false;

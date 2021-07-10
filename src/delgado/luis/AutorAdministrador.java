@@ -11,13 +11,24 @@ public class AutorAdministrador {
     private static AutorAdministrador autorAdm = new AutorAdministrador("12");
 
     private String id;
+
+    /*
+    Arreglo de datos de la clase de autor
+     */
     static ArrayList<Autor> autores;
 
+    /*
+    Contructor de la clase del autor administrador
+     */
     public AutorAdministrador(String id) {
         this.id = id;
         this.autores = new ArrayList<Autor>();
     }
 
+    /*
+    funcion para crear un autor, esta clase se va a conectar con el constructor de crear autor en la clase
+    luego anade la informacion al arreglo
+     */
     public static void NuevoAutor() {
         System.out.println("Ingrese el id del autor");
         String id = scanner.nextLine();
@@ -37,19 +48,18 @@ public class AutorAdministrador {
         }else {
             System.out.println("El autor ya se encuentra en el archivo");
         }
-
     }
 
-
+    /*
+    esta funcion valida si ya existe un autor con el mismo id en el arreglo
+     */
     public boolean crearAutor(Autor autor){
         if (encontrarAutor(autor.getId())>=0) {
             System.out.println("Autor ya existe");
             return false;
         }
         autores.add(autor);
-
         listarAutores();
-
         return true;
     }
 
@@ -61,16 +71,18 @@ public class AutorAdministrador {
                     + "-> "+
                     autores.get(i).getNombre());
         }
-
-//        for(Autor a: autores){
-//            System.out.println(a.toString());
-//        }
     }
 
+    /*
+    esta funcion va a validar la cantidad de datos guardados en el arreglo
+     */
     public int encontrarAutor(Autor autor){
         return this.autores.indexOf(autor);
     }
 
+    /*
+    esta funcion va a validar y devolver la ubicacion del id de un autor dentro de la lista de arreglos
+     */
     private int encontrarAutor(String id){
         for (int i=0; i<this.autores.size(); i++){
             Autor autor = this.autores.get(i);
@@ -88,6 +100,9 @@ public class AutorAdministrador {
         return null;
     }
 
+    /*
+    esta funcion va a devolver la ubicacion exacta del id de un autor dentro de un arreglo
+     */
     public Autor queryAutor(String id){
         int position = encontrarAutor(id);
         if(position>=0){
@@ -96,7 +111,9 @@ public class AutorAdministrador {
         return null;
     }
 
-
+    /*
+    con esta funcion se puede verificar toda la informacion de un autor tomando como referencia el id que se incluya en el programa
+     */
     public void ConsultarDatosAutor(){
 
         System.out.println("Ingrese el id de un contacto que desea consultar");
@@ -108,6 +125,10 @@ public class AutorAdministrador {
         }
     }
 
+    /*
+    con esta funcion se puede actualizar toda la informacion de un autor
+    se busca con el id y luego de incluir la data, se agrega al arreglo de datos
+     */
     public static void ActualizarAutor(){
         System.out.println("Ingrese el id de un contacto existente");
         String id = scanner.nextLine();
@@ -136,7 +157,9 @@ public class AutorAdministrador {
         }
     }
 
-
+    /*
+    esta funcion se aplica en el arreglo de actualizar, verifica si el nuevo id ya existe, y sino, lo agrega en el arreglo
+     */
     public boolean updateAutor(Autor oldAutor, Autor newAutor){
         int foundPosition = encontrarAutor(oldAutor);
         if(foundPosition<0){
@@ -152,8 +175,9 @@ public class AutorAdministrador {
         return true;
     }
 
-
-
+    /*
+    funcion para eliminar los datos de un arreglo, mediante un id
+     */
     public static void EliminarAutor(){
         System.out.println("Ingrese el id del Autor que desea eliminar");
         String id = scanner.nextLine();
@@ -168,9 +192,11 @@ public class AutorAdministrador {
         }else {
             System.out.println("Error al momento de eliminar el contact");
         }
-
     }
 
+    /*
+    funcion utilizada en el eliminar un autor, validando si el autor existe dentro del arreglo o no
+     */
     public boolean removerAutor(Autor autor){
         int posicion = encontrarAutor(autor);
         if(posicion < 0){
@@ -180,7 +206,6 @@ public class AutorAdministrador {
         this.autores.remove(posicion);
         System.out.println(autor.getId() + ", fue eliminado");
         return true;
-
     }
 
     public String mostrarAutores(){
